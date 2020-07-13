@@ -6,9 +6,9 @@ if (!path) {
 }
 
 try {
-  const pathInfo = await Deno.stat(path);
+  const fileInfo = await Deno.stat(path);
 
-  if (!pathInfo.isDirectory) {
+  if (!fileInfo.isDirectory) {
     throw new Error("Not a directory!");
   }
 

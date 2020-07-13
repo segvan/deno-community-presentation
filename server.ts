@@ -4,11 +4,11 @@ const s = serve({ port: 8000 });
 console.log("HTTP server is running on port 8000.");
 
 for await (const req of s) {
-  const path = getPath(req);
+  const pathQS = getPath(req);
 
   try {
     req.respond({
-      body: await listDir(path),
+      body: await listDir(pathQS),
     });
   } catch (exc) {
     req.respond({
